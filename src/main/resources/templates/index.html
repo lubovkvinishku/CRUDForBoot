@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Все люди</title>
+
+<style>th {background: #ADD8E6}table {border-collapse: collapse;} table th, table td {padding: 10px;}</style>
+
+</head>
+<body>
+<h1>Users</h1>
+
+<table th:border="1">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>lastname</th>
+        <th>email</th>
+        <th> </th>
+        <th> </th>
+    </tr>
+
+
+    <tr th:each="user : ${users}">
+
+        <td th:utext="${user.id}">id</td>
+        <td th:utext="${user.getName()}">name</td>
+        <td th:utext="${user.getLastname()}">lastname</td>
+        <td th:utext="${user.getEmail()}">email</td>
+        <td>
+            <form th:action="@{user/{id}(id=${user.getId()})}" method="GET">
+                <button type="submit" style="width: 60px">Edit</button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{/user/{id}/delete(id=${user.getId()})}" th:method="DELETE">
+                <button type="submit" style="width: 60px">Delete</button>
+            </form>
+        </td>
+<!--        <a th:href="@{user/{id}(id=${user.getId()})}" th:text="${user.getName()}">user</a>-->
+    </tr>
+
+</table>
+<br>
+<hr/>
+
+<a href="/user/new">Create new user</a>
+
+</body>
+</html>

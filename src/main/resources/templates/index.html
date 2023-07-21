@@ -28,16 +28,16 @@
         <td th:utext="${user.getLastname()}">lastname</td>
         <td th:utext="${user.getEmail()}">email</td>
         <td>
-            <form th:action="@{user/{id}(id=${user.getId()})}" method="GET">
+            <form th:action="@{user/edit/{id}(id=${user.getId()})}" method="GET">
                 <button type="submit" style="width: 60px">Edit</button>
             </form>
         </td>
         <td>
-            <form th:action="@{/user/{id}/delete(id=${user.getId()})}" th:method="DELETE">
+            <form th:action="@{/user/delete/{id}(id=${user.getId()})}" th:method="DELETE">
                 <button type="submit" style="width: 60px">Delete</button>
             </form>
         </td>
-<!--        <a th:href="@{user/{id}(id=${user.getId()})}" th:text="${user.getName()}">user</a>-->
+
     </tr>
 
 </table>

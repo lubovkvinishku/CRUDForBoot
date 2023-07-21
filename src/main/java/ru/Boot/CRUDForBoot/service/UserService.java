@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface UserService {
 
-    public List<User> index();
+    public List<User> allUsers();
     public User show(int id);
     public void save(User user);
     public void update(User updateUser);
